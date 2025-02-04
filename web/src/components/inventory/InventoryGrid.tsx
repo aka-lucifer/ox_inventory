@@ -24,6 +24,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
       setPage((prev) => ++prev);
     }
   }, [entry]);
+
   return (
     <>
       <div className="inventory-grid-wrapper" style={{ pointerEvents: isBusy ? 'none' : 'auto' }}>
@@ -37,7 +38,7 @@ const InventoryGrid: React.FC<{ inventory: Inventory }> = ({ inventory }) => {
               <div className='weight-container'>
                 <img src={weights} alt="" />
               <p>
-                {weight / 1000}/{inventory.maxWeight / 1000}kg
+                {(weight / 1000).toFixed(2)}/{inventory.maxWeight / 1000}kg
               </p>
               </div>
             )}

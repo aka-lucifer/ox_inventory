@@ -16,6 +16,8 @@ $gridGap: 0.4vw;
 $containerSize: calc(#{$gridRows} * #{$gridSize + 0.22vh} + #{$gridRows} * #{$gridGap});
 $secondarycontainerSize: calc(#{$secondarygridRows} * #{$gridSize + 0.22vh} + #{$secondarygridRows} * #{$gridGap});
 
+$serverColour: #fb4b20;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
@@ -282,7 +284,7 @@ button:active {
 .line{
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, rgba(233, 233, 233, .4) 0%,  rgba(233, 233, 233, 0) 100%);
+  background: linear-gradient(90deg, rgba(251, 75, 32, .4) 0%,  rgba(233, 233, 233, 0) 100%);
 }
 
 .playerinventory{
@@ -366,7 +368,7 @@ button:active {
     font-size: 1.5vw;
     font-weight: bold;
     text-transform: uppercase;
-    color: $textColor;
+    color: $serverColour;
   }
 }
 
@@ -423,9 +425,11 @@ button:active {
   position: absolute;
   left: 0.3vw;
   top: -0.5vw;
-  border-radius: 100%;
-  background-color: white;
-  color: black;
+  background: linear-gradient(to right top, $serverColour -50%, rgba(0, 0, 0, 0));
+  border: 1px solid $serverColour;
+  border-radius: 1px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+  color: white;
 
   width: 1vw;
   height: 1vw;
@@ -436,6 +440,17 @@ button:active {
   font-size: .7vw;
   font-weight: bold;
   font-family: $mainFont;
+}
+
+.item-slot-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  padding: 3px;
+  gap: 3px;
+  p {
+    font-size: 12px;
+  }
 }
 
 .item-slot-wrapper {
@@ -546,7 +561,7 @@ button:active {
 .hotbar-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 2px;
   justify-content: center;
   width: 100%;
   position: absolute;
